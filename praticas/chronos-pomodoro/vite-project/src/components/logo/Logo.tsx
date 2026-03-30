@@ -1,5 +1,5 @@
 import { TimerIcon } from 'lucide-react';
-import styles from './styles.module.css';
+import styles from './Logo.module.css';
 
 export function Logo() {
   return (
