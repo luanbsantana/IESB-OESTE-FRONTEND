@@ -1,0 +1,44 @@
+:root {
+  /* Base (mantém escuro elegante) */
+  --gray-100: #f8fafc;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
+  /* 🎯 Cores principais (gradiente vibes) */
+  --primary-light: #67e8f9;   /* azul neon */
+  --primary: #35508b;         /* roxo vibrante */
+  --primary-dark: #150957;    /* roxo mais forte */
+
+  /* 🌈 Links */
+  --link-color: #22d3ee;
+  --link-hover: #06b6d4;
+
+  /* 🚀 Status (bem vivos) */
+  --success: #4ade80;  /* verde neon */
+  --warning: #f59e0b;  /* laranja forte */
+  --error: #f43f5e;    /* rosa/vermelho */
+  --info: #60a5fa;     /* azul claro */
+
+  /* 📝 Textos sobre cores */
+  --text-over-primary: #ffffff;
+  --text-over-primary-dark: #f5f3ff;
+  --text-over-primary-light: #082f49;
+  --text-over-success: #052e16;
+  --text-over-warning: #451a03;
+  --text-over-error: #fff1f2;
+  --text-over-info: #082f49;
+
+  /* Texto geral */
+  --text-default: #f1f5f9;
+  --text-muted: #cbd5f5;
+
+  /* Estados */
+  --disabled: #475569;
+  --text-disabled: #94a3b8;
+}
