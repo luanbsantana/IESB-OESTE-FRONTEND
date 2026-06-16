@@ -4,17 +4,35 @@ export function authReducer(state, action) {
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload,
-      }
+        user: action.payload.user,
+        token: action.payload.token,
+        isLoading: false,
+      };
+
+    case 'RESTORE_SESSION':
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+        token: action.payload.token,
+        isLoading: false,
+      };
 
     case 'LOGOUT':
       return {
-        ...state,
         isAuthenticated: false,
         user: null,
-      }
+        token: null,
+        isLoading: false,
+      };
+
+    case 'FINISH_LOADING':
+      return {
+        ...state,
+        isLoading: false,
+      };
 
     default:
-      return state
+      return state;
   }
 }

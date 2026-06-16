@@ -2,8 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import { settingsRouter } from './routes/settings.routes';
 import { tasksRouter } from './routes/tasks.routes';
+import { authRouter } from './routes/auth.routes';
+import { authMiddleware } from './middleware/auth.middleware';
 
-// Correção para serialização de BigInt em JSON
+// Serialização de BigInt
 (BigInt.prototype as any).toJSON = function () { return Number(this); };
 
 export const app = express();
@@ -11,8 +13,12 @@ export const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/settings', settingsRouter);
-app.use('/tasks', tasksRouter);
+// Rotas públicas
+app.use('/auth', authRouter);
+
+// Rotas protegidas (exigem JWT válido)
+app.use('/settings', authMiddleware, settingsRouter);
+app.use('/tasks', authMiddleware, tasksRouter);
 
 app.get('/health', (_req, res) => {
   res.json({ ok: true });

@@ -25,3 +25,13 @@
   width: 2.4rem;
   height: 2.4rem;
 }
+
+.logoutLink {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+}
+
+.logoutLink:hover {
+  background: rgba(255, 107, 107, 0.3);
+  filter: none;
+}

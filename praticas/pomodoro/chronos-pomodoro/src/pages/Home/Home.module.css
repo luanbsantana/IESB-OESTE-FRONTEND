@@ -1,0 +1,10 @@
+.welcome {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.welcome strong {
+  color: var(--color-primary, #00d2a0);
+}

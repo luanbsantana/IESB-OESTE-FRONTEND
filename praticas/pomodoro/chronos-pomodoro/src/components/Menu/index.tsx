@@ -4,14 +4,20 @@ import {
   MoonIcon,
   SettingsIcon,
   SunIcon,
+  LogOutIcon,
 } from 'lucide-react';
 import styles from './styles.module.css';
 import { useState, useEffect } from 'react';
 import { RouterLink } from '../RouterLink';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router';
 
 type AvailableThemes = 'dark' | 'light';
 
 export function Menu() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
   const [theme, setTheme] = useState<AvailableThemes>(() => {
     const storageTheme =
       (localStorage.getItem('theme') as AvailableThemes) || 'dark';
@@ -27,11 +33,16 @@ export function Menu() {
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ) {
     event.preventDefault();
-
     setTheme(prevTheme => {
       const nextTheme = prevTheme === 'dark' ? 'light' : 'dark';
       return nextTheme;
     });
+  }
+
+  function handleLogout(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    event.preventDefault();
+    logout();
+    navigate('/login');
   }
 
   useEffect(() => {
@@ -76,6 +87,16 @@ export function Menu() {
         onClick={handleThemeChange}
       >
         {nextThemeIcon[theme]}
+      </a>
+
+      <a
+        className={`${styles.menuLink} ${styles.logoutLink}`}
+        href='#'
+        aria-label='Sair'
+        title='Sair da conta'
+        onClick={handleLogout}
+      >
+        <LogOutIcon />
       </a>
     </nav>
   );
